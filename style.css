@@ -44,7 +44,7 @@ body {
 .profile-img {
   width: 140px;
   height: 140px;
-  border-radius: 25px;
+  border-radius: 50%;
   object-fit: cover;
   margin-bottom: 50%;
   border: 3px solid gold;
@@ -155,11 +155,38 @@ body {
 }
 
 /* NAVBAR */
+
+.navbar-wrapper {
+  position: relative;
+}
+
 .navbar {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
   margin-bottom: 25px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: gold;
+  margin: 4px 0;
+  border-radius: 2px;
 }
 
 .nav-btn {
@@ -416,6 +443,28 @@ p {
   .sidebar {
     width: 100%;
   }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    background: #222;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    border-radius: 12px;
+    z-index: 10;
+    padding: 10px 0;
+  }
+
+  .navbar.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 /* DARK MODE */
@@ -452,4 +501,19 @@ body.light-mode .nav-btn {
 body.light-mode .nav-btn.active {
   background: gold;
   color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }   
+  
+}
+@media screen and (max-width: 400px) {
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }   
+  
 }

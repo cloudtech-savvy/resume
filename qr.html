@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume QR Code</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f4f4f4; }
+    h1 { margin-bottom: 20px; }
+    #qrcode { margin-bottom: 20px; }
+    .info { color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Scan to View Resume</h1>
+  <canvas id="qrcode"></canvas>
+  <div class="info">Point your camera at the QR code to open the resume.</div>
+  <script>
+    // Use the provided GitHub Pages resume link
+    var resumeUrl = 'https://patrick090795.github.io/resume/';
+    var qr = new QRious({
+      element: document.getElementById('qrcode'),
+      value: resumeUrl,
+      size: 250,
+      background: 'white',
+      foreground: 'black'
+    });
+  </script>
+</body>
+</html>

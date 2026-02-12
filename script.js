@@ -1,3 +1,10 @@
+// HAMBURGER MENU FOR MOBILE
+const hamburger = document.getElementById("hamburgerMenu");
+const navbarMenu = document.getElementById("navbarMenu");
+
+hamburger.addEventListener("click", () => {
+  navbarMenu.classList.toggle("show");
+});
 // NAVBAR SECTION SWITCH
 const navButtons = document.querySelectorAll(".nav-btn");
 const sections = document.querySelectorAll(".section");
