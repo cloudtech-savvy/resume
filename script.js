@@ -95,26 +95,27 @@ typeEffect();
 
 // DARK MODE TOGGLE
 const darkToggle = document.getElementById("darkModeToggle");
+const themeStorageKey = "resume-theme";
+
+function updateThemeToggleLabel() {
+  const isLightMode = document.body.classList.contains("light-mode");
+  darkToggle.innerHTML = isLightMode
+    ? `<i class="fa-solid fa-moon"></i> Switch to Dark Mode`
+    : `<i class="fa-solid fa-sun"></i> Switch to Light Mode`;
+}
+
+if (localStorage.getItem(themeStorageKey) === "light") {
+  document.body.classList.add("light-mode");
+}
+
+updateThemeToggleLabel();
 
 darkToggle.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
-
-  if (document.body.classList.contains("light-mode")) {
-    darkToggle.innerHTML = `<i class="fa-solid fa-sun"></i> Light Mode`;
-  } else {
-    darkToggle.innerHTML = `<i class="fa-solid fa-moon"></i> Dark Mode`;
-  }
-});
-
-// DOWNLOAD RESUME
-// The download functionality is now handled by the anchor tag in the HTML, so no JavaScript is needed for this feature.
-
-document.getElementById("downloadResumeBtn").addEventListener("click", function () {
-  const link = document.createElement("a");
-  link.href = "resume.pdf";  
-  link.download = "Jean_Aime_Patrick_Resume.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  localStorage.setItem(
+    themeStorageKey,
+    document.body.classList.contains("light-mode") ? "light" : "dark"
+  );
+  updateThemeToggleLabel();
 });
 

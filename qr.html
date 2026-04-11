@@ -6,26 +6,68 @@
   <title>Resume QR Code</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   <style>
-    body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f4f4f4; }
-    h1 { margin-bottom: 20px; }
-    #qrcode { margin-bottom: 20px; }
-    .info { color: #333; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f4efe5, #efe1c7);
+      font-family: Arial, sans-serif;
+      color: #1f1a14;
+    }
+
+    .card {
+      width: min(92vw, 420px);
+      background: white;
+      border-radius: 24px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 18px 50px rgba(76, 52, 18, 0.14);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: #5f564c;
+      line-height: 1.6;
+    }
+
+    #qrcode {
+      margin: 8px auto 20px;
+      display: block;
+      border: 10px solid #f7f0e5;
+      border-radius: 18px;
+    }
+
+    .link {
+      color: #a16a10;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>Scan to View Resume</h1>
-  <canvas id="qrcode"></canvas>
-  <div class="info">Point your camera at the QR code to open the resume.</div>
+  <main class="card">
+    <h1>Scan to View My Portfolio</h1>
+    <p>Point your camera at the QR code to open my portfolio homepage and browse the latest resume site.</p>
+    <canvas id="qrcode"></canvas>
+    <p><a class="link" id="resumeLink" href="#">Open portfolio directly</a></p>
+  </main>
   <script>
-    // Use the provided GitHub Pages resume link
     var resumeUrl = 'https://patrick090795.github.io/resume/';
     var qr = new QRious({
       element: document.getElementById('qrcode'),
       value: resumeUrl,
-      size: 250,
+      size: 260,
       background: 'white',
       foreground: 'black'
     });
+    document.getElementById('resumeLink').href = resumeUrl;
   </script>
 </body>
 </html>
